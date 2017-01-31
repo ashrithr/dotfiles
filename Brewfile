@@ -25,6 +25,7 @@ brew 'bash'
 brew 'homebrew/dupes/grep'
 
 # Install Binaries
+brew 'xs' # dependency for python3
 brew 'ack'
 brew 'awscli'
 brew 'cmake'
@@ -87,14 +88,10 @@ cask 'qlstephen'
 
 # Fonts
 cask 'font-hack'
-cask 'font-sauce-code-powerline'
-cask 'font-source-code-pro'
-cask 'font-source-sans-pro'
-cask 'font-source-serif-pro'
+cask 'font-roboto-mono'
+cask 'font-roboto-mono-for-powerline'
 
 # Install Mac App Store apps
-mas '1Password', id: 443987910
-mas 'BetterSnapTool', id: 417375580
 mas 'Dash', id: 449589707
 mas 'Fantastical 2', id: 975937182
 mas 'Kaleidoscope', id: 587512244
@@ -102,5 +99,4 @@ mas 'Marked 2', id: 890031187
 mas 'Patterns', id: 429449079
 mas 'Pixelmator', id: 407963104
 mas 'Sip', id: 507257563
-mas 'Sketch', id: 402476602
 mas 'Quiver', id: 866773894
