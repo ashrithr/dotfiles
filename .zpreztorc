@@ -1,0 +1,24 @@
+zstyle ':prezto:*:*' color 'yes'
+
+# The order matters.
+zstyle ':prezto:load' pmodule \
+  'environment' \
+  'terminal' \
+  'editor' \
+  'history' \
+  'history-substring-search' \
+  'directory' \
+  'spectrum' \
+  'utility' \
+  'completion' \
+  'prompt' \
+  'osx' \
+  'ruby' \
+  'syntax-highlighting' \
+  'homebrew' \
+  'git' \
+  'tmux'
+
+zstyle ':prezto:module:editor' key-bindings 'vi'
+
+zstyle ':prezto:module:prompt' theme 'pure'
