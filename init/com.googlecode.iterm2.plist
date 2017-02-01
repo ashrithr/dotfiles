@@ -687,11 +687,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>412 364 620 392 0 0 1440 878 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>102 330 796 473 0 0 1440 878 </string>
+	<string>102 291 918 512 0 0 1440 878 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>4 11 1436 867 0 0 1440 878 </string>
+	<string>2721 -299 1279 1418 1440 -297 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>4 11 1436 867 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1534,6 +1534,8 @@
 	<false/>
 	<key>PasteFromClipboard</key>
 	<false/>
+	<key>PasteTabToStringTabStopSize</key>
+	<integer>4</integer>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -1570,7 +1572,7 @@
 	<key>PrefsCustomFolder</key>
 	<string>/Users/ashrith/.dotfiles/init</string>
 	<key>PromptOnQuit</key>
-	<true/>
+	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<false/>
 	<key>RightCommand</key>

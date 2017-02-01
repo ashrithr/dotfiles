@@ -39,5 +39,7 @@ rsync --exclude ".git/" \
   --exclude "init/" \
   -avh --no-perms . ~
 
-echo ""
+echo "[+] Sourcing zsh ..."
 source ~/.zshrc
+
+echo "DONE"

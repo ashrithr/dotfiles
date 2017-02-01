@@ -18,3 +18,6 @@ export LESS_TERMCAP_md="${yellow}";
 
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';
+
+# Use rg as the default for fzf
+export FZF_DEFAULT_COMMAND="rg --files --no-ignore --hidden --smart-case --follow --glob '!.git/*'"
