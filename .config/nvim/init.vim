@@ -153,6 +153,9 @@ else
   let g:indentLine_faster = 1
 endif
 
+"" column color
+set colorcolumn=100
+
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
 set scrolloff=3
@@ -175,15 +178,12 @@ if exists("*fugitive#statusline")
 endif
 
 " netrw - builtin file browser
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-"let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * :Vexplore
-augroup END
+let g:netrw_liststyle=3         " tree
+let g:netrw_banner=0            " no banner
+let g:netrw_altv=1              " open files on right
+let g:netrw_preview=1           " open previews vertically
+"noremap <Leader><Tab> :call VexToggle(getcwd())<CR>
+"noremap <Leader>` :call VexToggle("")<CR>
 
 " vim-airline
 let g:airline_theme = 'quantum'
@@ -270,6 +270,9 @@ let g:neomake_c_clang_maker = {
    \ 'args': ['-Wall', '-Wextra', '-Weverything', '-pedantic'],
    \ }
 
+"" Common
+noremap <Leader><Leader> :xa<CR>
+
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
@@ -290,7 +293,7 @@ nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
 
 "" Set working directory
-nnoremap <leader>. :lcd %:p:h<CR>
+nnoremap <Leader>. :lcd %:p:h<CR>
 
 "" Opens an edit command with the path of the currently edited file filled in
 noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
