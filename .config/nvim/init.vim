@@ -143,11 +143,12 @@ endif
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
-set gfn=Hack\ 14
+set gfn=Knack\ Bold\ Nerd\ Font\ 14
+set guifont=Knack\ Nerd\ Font:h14
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
-    set guifont=Hack:h14
+    set guifont=Knack\ Bold\ Nerd\ Font:h14
     set transparency=7
   endif
 else
@@ -273,6 +274,9 @@ set autoread
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
+"" NERDTree
+nnoremap <C-g> :NERDTreeToggle<CR>
+
 "" Neomake
 let g:neomake_c_enable_makers = ['clang']
 let g:neomake_c_clang_maker = {
@@ -465,3 +469,9 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+"*****************************************************************************
+"" Custom Commands
+"*****************************************************************************
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+
