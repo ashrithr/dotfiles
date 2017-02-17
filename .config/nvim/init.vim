@@ -7,10 +7,7 @@ endif
 
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 
-let g:vim_bootstrap_langs = "c,html,ruby"
-let g:vim_bootstrap_editor = "nvim"				" nvim or vim
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
+" Automatically install vim-plug and run PlugInstall if vim-plug not found
 if !filereadable(vimplug_exists)
   echo "Installing Vim-Plug..."
   echo ""
@@ -20,6 +17,10 @@ if !filereadable(vimplug_exists)
   autocmd VimEnter * PlugInstall
 endif
 
+let g:vim_bootstrap_langs = "c,html,ruby"
+let g:vim_bootstrap_editor = "nvim"				" nvim or vim
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 " Required:
 call plug#begin(expand('~/.config/nvim/plugged'))
 
@@ -27,6 +28,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 " core
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -39,6 +41,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'majutsushi/tagbar'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-surround'
 
 " Pandoc / Markdown
 Plug 'vim-pandoc/vim-pandoc', { 'for': [ 'pandoc', 'markdown' ] }
@@ -57,6 +60,9 @@ Plug 'ecomba/vim-ruby-refactoring'
 
 "" Color
 Plug 'tyrannicaltoucan/vim-quantum'
+
+"" Extras
+Plug 'ryanoasis/vim-devicons'
 
 "*****************************************************************************
 "" User bundles
@@ -122,6 +128,7 @@ let g:session_command_aliases = 1
 "*****************************************************************************
 syntax enable
 set number
+set relativenumber
 set ruler
 
 if (has("termguicolors"))
@@ -136,11 +143,11 @@ endif
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
-set gfn=Hack\ 10
+set gfn=Hack\ 14
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
-    set guifont=Hack:h12
+    set guifont=Hack:h14
     set transparency=7
   endif
 else
@@ -231,7 +238,8 @@ cnoreabbrev Qall qall
 "*****************************************************************************
 "" Autocmd Rules
 "*****************************************************************************
-autocmd! BufWritePost * Neomake
+"" Run Neomake on the current file whenever buffer is read, written or switched
+autocmd! BufReadPost,BufWritePost,BufEnter * Neomake
 
 "" The PC is fast enough, do syntax highlight syncing from start
 augroup vimrc-sync-fromstart
@@ -257,6 +265,8 @@ augroup vimrc-make-cmake
   autocmd FileType make setlocal noexpandtab
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
+
+autocmd Filetype c setlocal ts=4 sts=4 sw=4
 
 set autoread
 
@@ -303,7 +313,7 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " fzf
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
-noremap <C-p> :Files<CR>
+nnoremap <C-p> :Files<CR>
 
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading

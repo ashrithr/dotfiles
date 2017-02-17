@@ -92,6 +92,7 @@ cask 'qlstephen'
 cask 'font-hack'
 cask 'font-roboto-mono'
 cask 'font-roboto-mono-for-powerline'
+cask 'install font-hack-nerd-font'
 
 # Install Mac App Store apps
 mas 'Dash', id: 449589707
