@@ -63,6 +63,7 @@ Plug 'tyrannicaltoucan/vim-quantum'
 
 "" Extras
 Plug 'ryanoasis/vim-devicons'
+Plug 'yuttie/comfortable-motion.vim'
 
 "*****************************************************************************
 "" User bundles
@@ -349,7 +350,7 @@ if has('macunix')
 endif
 
 "" File nav
-"noremap <leader>w :w<CR>
+noremap <leader>w :w<CR>
 
 "" Buffer nav
 noremap <leader>z :bp<CR>
