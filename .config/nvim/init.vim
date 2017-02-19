@@ -164,6 +164,7 @@ endif
 
 "" column color
 set colorcolumn=100
+set cursorline
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
@@ -185,14 +186,6 @@ set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
 if exists("*fugitive#statusline")
   set statusline+=%{fugitive#statusline()}
 endif
-
-" netrw - builtin file browser
-let g:netrw_liststyle=3         " tree
-let g:netrw_banner=0            " no banner
-let g:netrw_altv=1              " open files on right
-let g:netrw_preview=1           " open previews vertically
-"noremap <Leader><Tab> :call VexToggle(getcwd())<CR>
-"noremap <Leader>` :call VexToggle("")<CR>
 
 " vim-airline
 let g:airline_theme = 'quantum'
@@ -380,6 +373,9 @@ vnoremap K :m '<-2<CR>gv=gv
 
 "" Open current line on GitHub
 nnoremap <Leader>o :.Gbrowse<CR>
+
+"" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 "*****************************************************************************
 "" Custom configs
