@@ -59,7 +59,7 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'ecomba/vim-ruby-refactoring'
 
 "" Color
-Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'mhartington/oceanic-next'
 
 "" Extras
 Plug 'ryanoasis/vim-devicons'
@@ -118,6 +118,9 @@ set fileformats=unix,dos,mac
 set showcmd
 set shell=/bin/zsh
 
+"set listchars=eol:¬
+"set list
+
 " session management
 let g:session_directory = "~/.config/nvim/session"
 let g:session_autoload = "no"
@@ -138,7 +141,7 @@ endif
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
-  colorscheme quantum
+  colorscheme OceanicNext
 endif
 
 set mousemodel=popup
@@ -188,7 +191,7 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'quantum'
+let g:airline_theme = 'oceanicnext'
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
