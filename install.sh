@@ -31,6 +31,10 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
 
+# Install Spacemacs
+echo "[+] Installing Spacemacs ..."
+git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
 # Move the configuration files
 echo "[+] Synchronizing dotfiles ..."
 rsync --exclude ".git/" \

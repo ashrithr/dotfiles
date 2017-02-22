@@ -6,6 +6,7 @@ tap 'neovim/neovim'
 tap 'homebrew/bundle'
 tap 'homebrew/dupes'
 tap 'homebrew/services'
+tap 'railwaycat/emacsmacport'
 
 # Install ZSH
 brew 'zsh'
@@ -56,6 +57,7 @@ brew 'tmux-mem-cpu-load'
 brew 'trash'
 brew 'tree'
 brew 'wget', args: ['with-iri']
+brew 'emacs-mac', args: ['with-spacemacs-icon']
 
 # Apps
 cask 'aerial'
