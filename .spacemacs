@@ -12,7 +12,6 @@
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-return-key-behavior nil
                       auto-completion-tab-key-behavior 'cycle
-                      auto-completion-private-snippets-directory "~/.spacemacs.d/snippets/"
                       auto-completion-enable-help-tooltip 'manual
                       :disabled-for org erc)
      (c-c++ :variables c-c++-enable-clang-support t)
@@ -25,7 +24,6 @@
      extra-langs
      git
      github
-     gtags
      html
      markdown
      osx
@@ -39,9 +37,9 @@
             shell-default-position 'bottom)
      syntax-checking
      (theming :variables
-              modify-theme-headings-inherit-from-default 'all
-              modify-theme-headings-same-size 'all
-              modify-theme-headings-bold 'all)
+              theming-headings-inherit-from-default 'all
+              theming-headings-same-size 'all
+              theming-headings-bold 'all)
      version-control
      yaml
      )
@@ -219,9 +217,9 @@
       (spacemacs-transient-state-title-face :background nil :foreground nil :inherit font-lock-warning-face)
       (term :foreground nil :background nil)))
 
-   ;; Shell
-   shell-default-term-shell "/bin/zsh"
-   exec-path-from-shell-arguments '("-l")
+    ;; Shell
+    shell-default-term-shell "/bin/zsh"
+    exec-path-from-shell-arguments '("-l")
    )
   )
 
