@@ -28,11 +28,13 @@
      markdown
      osx
      org
+     pandoc
      python
+     ranger
      ruby
      rust
      (shell :variables
-            shell-default-shell 'eshell
+            shell-default-shell 'multi-term
             shell-default-height 30
             shell-default-position 'bottom)
      syntax-checking
@@ -43,7 +45,7 @@
      version-control
      yaml
      )
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(all-the-icons)
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '()
    dotspacemacs-install-packages 'used-only))
@@ -127,7 +129,7 @@
      (tab-mark 9 [9655 9]))
 
    ;; Org mode
-   org-tags-column -80
+   org-tags-column -100
    org-startup-indented t
    org-startup-align-all-tables t
    org-footnote-auto-adjust t
@@ -224,6 +226,11 @@
   )
 
 (defun dotspacemacs/user-config ()
+  ;; Neotree
+  (setq neo-theme 'icons)
+  (setq all-the-icons-color-icons t
+        all-the-icons-for-buffer t)
+
   ;; Filenames
   (dolist (e '(("xml" . web-mode)
                ("xinp" . web-mode)
@@ -237,11 +244,33 @@
   ;; Make linums relative by default
   (with-eval-after-load 'linum
     (linum-relative-toggle))
+
+  ;; Shell
+  (setq multi-term-program "/usr/local/bin/zsh")
+
+  ;; Deft
   (setq deft-directory "~/Dropbox/org"
         deft-use-filter-string-for-filename t
         deft-use-filename-as-title t
         deft-extensions '("txt" "md" "org")
         deft-text-mode 'org-mode)
+
+  ;; Whitespace and wrapping
+  (add-hook 'org-mode-hook #'toggle-word-wrap)
+  (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+  ;; C-C++
+  (setq c-default-style "linux"
+        c-basic-offset 4
+        tab-width 4
+        indent-tabs-mode t)
+
+  ;; Misc
+  (add-hook 'text-mode-hook 'auto-fill-mode) ;; word wrap only in text mode not in programming mode
+  (setq-default fill-column 100)
+
+  ;; Modeline separators
+  (setq powerline-default-separator 'alternate)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -251,12 +280,71 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(neo-theme (quote icons))
  '(package-selected-packages
    (quote
-    (yapfify yaml-mode xterm-color wolfram-mode web-mode web-beautify toml-mode thrift tagedit stan-mode smeargle slim-mode shell-pop scss-mode scad-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder rbenv rake rainbow-mode rainbow-identifiers racer qml-mode pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements pbcopy pandoc-mode ox-pandoc osx-trash osx-dictionary orgit org-projectile org-present org org-pomodoro alert log4e gntp org-download multi-term mmm-mode minitest matlab-mode markdown-toc markdown-mode magit-gitflow magit-gh-pulls livid-mode skewer-mode simple-httpd live-py-mode less-css-mode launchctl julia-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc hy-mode htmlize helm-pydoc helm-gtags helm-gitignore helm-dash helm-css-scss helm-company helm-c-yasnippet haml-mode gnuplot gitignore-mode github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht gh-md ggtags flycheck-rust seq flycheck-pos-tip flycheck evil-snipe evil-magit magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode disaster diff-hl deft dash-at-point cython-mode company-web web-completion-data company-tern dash-functional tern company-statistics company-quickhelp pos-tip company-c-headers company-anaconda company color-identifiers-mode coffee-mode cmake-mode clang-format chruby cargo rust-mode bundler inf-ruby auto-yasnippet yasnippet arduino-mode anaconda-mode pythonic ac-ispell auto-complete ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme))))
+	(all-the-icons font-lock+ ranger yapfify yaml-mode xterm-color wolfram-mode web-mode web-beautify toml-mode thrift tagedit stan-mode smeargle slim-mode shell-pop scss-mode scad-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder rbenv rake rainbow-mode rainbow-identifiers racer qml-mode pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements pbcopy pandoc-mode ox-pandoc osx-trash osx-dictionary orgit org-projectile org-present org org-pomodoro alert log4e gntp org-download multi-term mmm-mode minitest matlab-mode markdown-toc markdown-mode magit-gitflow magit-gh-pulls livid-mode skewer-mode simple-httpd live-py-mode less-css-mode launchctl julia-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc hy-mode htmlize helm-pydoc helm-gtags helm-gitignore helm-dash helm-css-scss helm-company helm-c-yasnippet haml-mode gnuplot gitignore-mode github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht gh-md ggtags flycheck-rust seq flycheck-pos-tip flycheck evil-snipe evil-magit magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode disaster diff-hl deft dash-at-point cython-mode company-web web-completion-data company-tern dash-functional tern company-statistics company-quickhelp pos-tip company-c-headers company-anaconda company color-identifiers-mode coffee-mode cmake-mode clang-format chruby cargo rust-mode bundler inf-ruby auto-yasnippet yasnippet arduino-mode anaconda-mode pythonic ac-ispell auto-complete ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(company-tooltip-annotation ((t (:foreground "#ff9eb8"))))
+ '(company-tooltip-annotation-selection ((t (:background "#66d9ef"))))
+ '(erc-timestamp-face ((t (:inherit font-lock-comment-face :foreground nil))))
+ '(evil-search-highlight-persist-highlight-face ((t (:background "#fc5fef" :foreground "#000000"))))
+ '(flycheck-fringe-error ((t (:background nil))))
+ '(flycheck-fringe-info ((t (:background nil))))
+ '(flycheck-fringe-warning ((t (:background nil))))
+ '(font-latex-sectioning-0-face ((t (:inherit default :height 1.0 :weight bold))))
+ '(font-latex-sectioning-1-face ((t (:inherit default :height 1.0 :weight bold))))
+ '(font-latex-sectioning-2-face ((t (:inherit default :height 1.0 :weight bold))))
+ '(font-latex-sectioning-3-face ((t (:inherit default :height 1.0 :weight bold))))
+ '(font-latex-sectioning-4-face ((t (:inherit default :height 1.0 :weight bold))))
+ '(font-latex-sectioning-5-face ((t (:inherit default :height 1.0 :weight bold))))
+ '(font-latex-slide-title-face ((t (:inherit default :height 1.0 :weight bold))))
+ '(font-latex-verbatim-face ((t (:inherit nil))))
+ '(font-lock-builtin-face ((t (:foreground "#ffabd6" :weight semi-bold))))
+ '(font-lock-comment-face ((t (:slant italic))))
+ '(font-lock-doc-face ((t (:slant italic))))
+ '(font-lock-keyword-face ((t (:weight bold :foreground "#ff4185"))))
+ '(font-lock-string-face ((t (:slant italic))))
+ '(font-lock-warning-face ((t (:underline nil))))
+ '(header-line ((t (:box (:color "#555555" :line-width 1)))))
+ '(helm-ff-prefix ((t (:background nil :foreground "#666666" :weight bold))))
+ '(helm-prefarg ((t (:foreground "PaleGreen"))))
+ '(info-title-1 ((t (:inherit default :height 1.0 :weight bold))))
+ '(info-title-2 ((t (:inherit default :height 1.0 :weight bold))))
+ '(info-title-3 ((t (:inherit default :height 1.0 :weight bold))))
+ '(info-title-4 ((t (:inherit default :height 1.0 :weight bold))))
+ '(markdown-header-face ((t (:inherit default :height 1.0 :weight bold))))
+ '(markdown-header-face-1 ((t (:inherit default :height 1.0 :weight bold))))
+ '(markdown-header-face-2 ((t (:inherit default :height 1.0 :weight bold))))
+ '(markdown-header-face-3 ((t (:inherit default :height 1.0 :weight bold))))
+ '(markdown-header-face-4 ((t (:inherit default :height 1.0 :weight bold))))
+ '(markdown-header-face-5 ((t (:inherit default :height 1.0 :weight bold))))
+ '(markdown-header-face-6 ((t (:inherit default :height 1.0 :weight bold))))
+ '(mode-line ((t (:box (:color "#999999" :line-width 1 :style released-button)))))
+ '(mode-line-inactive ((t (:box (:color "#666666" :line-width 1 :style released-button)))))
+ '(org-document-title ((t (:inherit default :height 1.0 :weight bold))))
+ '(org-done ((t (:foreground "MediumSpringGreen"))))
+ '(org-level-1 ((t (:inherit default :height 1.0 :weight bold))))
+ '(org-level-2 ((t (:inherit default :height 1.0 :weight bold))))
+ '(org-level-3 ((t (:inherit default :height 1.0 :weight bold))))
+ '(org-level-4 ((t (:inherit default :height 1.0 :weight bold))))
+ '(org-level-5 ((t (:inherit default :height 1.0 :weight bold))))
+ '(org-level-6 ((t (:inherit default :height 1.0 :weight bold))))
+ '(org-level-7 ((t (:inherit default :height 1.0 :weight bold))))
+ '(org-level-8 ((t (:inherit default :height 1.0 :weight bold))))
+ '(powerline-active1 ((t (:box (:color "#999999" :line-width 1 :style released-button) :background "#5a5a5a"))))
+ '(powerline-active2 ((t (:box (:color "#999999" :line-width 1 :style released-button)))))
+ '(powerline-inactive1 ((t (:box (:color "#666666" :line-width 1 :style released-button)))))
+ '(powerline-inactive2 ((t (:box (:color "#666666" :line-width 1 :style released-button)))))
+ '(region ((t (:background "#998f84"))))
+ '(spacemacs-transient-state-title-face ((t (:background nil :foreground nil :inherit font-lock-warning-face))))
+ '(term ((t (:foreground nil :background nil))))
+ '(web-mode-comment-face ((t (:inherit font-lock-comment-face :foreground nil))))
+ '(web-mode-html-attr-name-face ((t (:inherit font-lock-variable-name-face :foreground nil))))
+ '(web-mode-html-attr-value-face ((t (:inherit font-lock-string-face :foreground nil))))
+ '(web-mode-html-tag-bracket-face ((t (:inherit web-mode-html-tag-face :foreground nil))))
+ '(web-mode-html-tag-face ((t (:inherit font-lock-builtin-face :foreground nil :weight bold)))))
