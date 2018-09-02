@@ -11,3 +11,6 @@ source ~/.exports
 
 # Functions
 source ~/.functions
+
+# Jenv
+eval "$(jenv init -)"
