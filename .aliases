@@ -1,5 +1,10 @@
 #!/usr/bin/env zsh
 
+# Unlias grc which is a github alias added by prezto for grc command to work
+if (( $+commands[grc] )); then
+   unalias grc
+fi
+
 alias rm=trash
 alias v='nvim'
 alias vim='nvim'
@@ -15,7 +20,7 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
+alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias db="cd ~/Dropbox"
@@ -171,3 +176,6 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # Utils
 alias weather="curl -4 http://wttr.in"
+
+# Marked
+alias marked="open -a Marked\ 2"

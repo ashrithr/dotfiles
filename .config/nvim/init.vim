@@ -20,6 +20,7 @@ endif
 let g:vim_bootstrap_langs = "c,html,ruby"
 let g:vim_bootstrap_editor = "nvim"				" nvim or vim
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 
 " Required:
 call plug#begin(expand('~/.config/nvim/plugged'))

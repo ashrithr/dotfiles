@@ -17,7 +17,9 @@ zstyle ':prezto:load' pmodule \
   'syntax-highlighting' \
   'homebrew' \
   'git' \
-  'tmux'
+  'tmux' \
+  'autosuggestions' \
+  'command-not-found'
 
 zstyle ':prezto:module:editor' key-bindings 'vi'
 
