@@ -56,6 +56,10 @@ Plug 'rust-lang/rust.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
+" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
 "" Color
 Plug 'mhartington/oceanic-next'
 Plug 'dracula/vim'
