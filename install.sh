@@ -43,6 +43,10 @@ rsync --exclude ".git/" \
   --exclude "init/" \
   -avh --no-perms . ~
 
+# Install neovim python support
+pip2 isntall neovim --upgrade
+pip3 install neovim --upgrade
+
 echo "[+] Sourcing zsh ..."
 source ~/.zshrc
 

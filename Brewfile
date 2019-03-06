@@ -1,7 +1,8 @@
 # Taps
-tap 'caskroom/cask'
-tap 'caskroom/fonts'
-tap 'caskroom/versions'
+tap 'homebrew/core'
+tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
+tap 'homebrew/cask-versions'
 tap 'neovim/neovim'
 tap 'homebrew/bundle'
 tap 'homebrew/dupes'
@@ -27,63 +28,68 @@ brew 'homebrew/dupes/grep'
 
 # Install Binaries
 brew 'xs' # dependency for python3
+brew 'openssl'
 brew 'ack'
 brew 'awscli'
 brew 'cmake'
 brew 'curl'
+brew 'exa'
+brew 'fd'
 brew 'ffmpeg'
 brew 'fzf'
 brew 'gcc'
 brew 'git'
 brew 'git-lfs'
+brew 'glances'
 brew 'hub'
 brew 'httpie'
+brew 'ipcalc'
 brew 'jenv'
 brew 'pandoc'
+brew 'python'
 brew 'python3'
 brew 'mackup'
 brew 'mas'
+brew 'mosh'
 brew 'neovim/neovim/neovim'
 brew 'node'
 brew 'pdsh'
 brew 'rbenv'
 brew 'reattach-to-user-namespace'
-brew 'rg'
+brew 'ripgrep'
 brew 'rtags'
 brew 'sbt'
 brew 'scala'
 brew 'scalastyle'
 brew 'thefuck'
+brew 'tldr'
 brew 'tmux'
 brew 'tmux-mem-cpu-load'
 brew 'trash'
 brew 'tree'
 brew 'wget', args: ['with-iri']
+brew "youtube-dl"
 brew 'emacs-mac', args: ['with-spacemacs-icon']
 
 # Apps
-cask 'aerial'
+cask '1password'
+cask 'appcleaner'
 cask 'alfred'
+cask 'dash3'
 cask 'docker'
 cask 'dropbox'
 cask 'firefox'
-cask 'google-chrome'
-cask 'google-drive'
-cask 'iterm2'
 cask 'ksdiff'
 cask 'postman'
 cask 'quip'
 cask 'sequel-pro'
 cask 'sizeup'
 cask 'slack'
-cask 'sublime-text'
-cask 'skype'
-cask 'tower'
-cask 'transmission'
-cask 'vagrant'
-cask 'virtualbox'
-cask 'virtualbox-extension-pack'
 cask 'iina'
+cask 'visual-studio-code'
+cask 'gitkraken'
+cask 'whatsapp'
+cask 'zoomus'
 
 # Quicklook
 cask 'qlcolorcode'
@@ -93,17 +99,29 @@ cask 'quicklook-csv'
 cask 'qlstephen'
 
 # Fonts
+cask 'font-fira-code'
 cask 'font-hack'
-cask 'font-roboto-mono'
-cask 'font-roboto-mono-for-powerline'
-cask 'install font-hack-nerd-font'
+cask 'font-hack-nerd-font'
 
 # Install Mac App Store apps
-mas 'Dash', id: 449589707
-mas 'Fantastical 2', id: 975937182
-mas 'Kaleidoscope', id: 587512244
-mas 'Marked 2', id: 890031187
-mas 'Patterns', id: 429449079
-mas 'Pixelmator', id: 407963104
-mas 'Sip', id: 507257563
-mas 'Quiver', id: 866773894
+mas "Agenda", id: 1287445660
+mas "Bear", id: 1091189122
+mas "DaisyDisk", id: 411643860
+mas "Deliveries", id: 924726344
+mas "Fantastical 2", id: 975937182
+mas "Jump Desktop", id: 524141863
+mas "Kaleidoscope", id: 587512244
+mas "Magnet", id: 441258766
+mas "Marked 2", id: 890031187
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft PowerPoint", id: 462062816
+mas "Microsoft Remote Desktop", id: 715768417
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Microsoft Word", id: 462054704
+mas "Patterns", id: 429449079
+mas "Pixelmator", id: 407963104
+mas "Pocket", id: 568494494
+mas "SiteSucker", id: 442168834
+mas "Spark", id: 1176895641
+mas "Things3", id: 904280696
+mas "Yoink", id: 457622435
