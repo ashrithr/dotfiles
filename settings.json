@@ -52,12 +52,12 @@
             // Use a 10% brigher foreground color for all comments.
             "comments": "#7b88a1",
             "textMateRules": [
-                {
-                    "scope": "comment",
-                    "settings": {
-                        "fontStyle": "italic"
-                    }
-                },
+                // {
+                //     "scope": "comment",
+                //     "settings": {
+                //         "fontStyle": "italic"
+                //     }
+                // },
                 {
                     "scope": "entity.name.function.macro.rust",
                     "settings": {
@@ -67,6 +67,10 @@
             ]
         }
     },
+    "material-icon-theme.folders.color": "#616e88",
+    "material-icon-theme.folders.theme": "classic",
+    "material-icon-theme.hidesExplorerArrows": true,
+    "material-icon-theme.saturation": 0.6,
     "workbench.fontAliasing": "antialiased",
     "markdown.extension.toc.githubCompatibility": true,
     "gitlens.codeLens.authors.enabled": false,
@@ -95,7 +99,6 @@
     "rust.build_on_save": true,
     "editor.formatOnSave": true,
     "workbench.sideBar.location": "right",
-    "material-icon-theme.folders.theme": "classic",
     "rust-client.rlsPath": "/Users/ashrith/.cargo/bin/rls",
     "rust-client.channel": "stable",
     "editor.suggestSelection": "first",
