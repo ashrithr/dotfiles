@@ -1,5 +1,4 @@
 {
-    "workbench.iconTheme": "material-icon-theme",
     "editor.fontSize": 16,
     "editor.rulers": [
         80,
@@ -42,35 +41,10 @@
         }
     ],
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Nord",
     "workbench.list.horizontalScrolling": true,
     "editor.fontFamily": "'Fira Code', Hack, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "editor.wordWrapColumn": 100,
-    "editor.tokenColorCustomizations": {
-        "[Nord]": {
-            // Use a 10% brigher foreground color for all comments.
-            "comments": "#7b88a1",
-            "textMateRules": [
-                // {
-                //     "scope": "comment",
-                //     "settings": {
-                //         "fontStyle": "italic"
-                //     }
-                // },
-                {
-                    "scope": "entity.name.function.macro.rust",
-                    "settings": {
-                        "fontStyle": "bold"
-                    }
-                }
-            ]
-        }
-    },
-    "material-icon-theme.folders.color": "#616e88",
-    "material-icon-theme.folders.theme": "classic",
-    "material-icon-theme.hidesExplorerArrows": true,
-    "material-icon-theme.saturation": 0.6,
     "workbench.fontAliasing": "antialiased",
     "markdown.extension.toc.githubCompatibility": true,
     "gitlens.codeLens.authors.enabled": false,
@@ -140,5 +114,44 @@
     "sync.gist": "bf15382bcc63ef585d6c3797ebb7fca7",
     "gitlens.codeLens.enabled": false,
     "editor.renderWhitespace": "selection",
+    /*+--- Color Theme ---+*/
+    "workbench.colorTheme": "Nord",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.tokenColorCustomizations": {
+        "[Nord]": {
+            // Use a 10% brigher foreground color for all comments.
+            "comments": "#7b88a1",
+            "textMateRules": [
+                // {
+                //     "scope": "comment",
+                //     "settings": {
+                //         "fontStyle": "italic"
+                //     }
+                // },
+                {
+                    "scope": "entity.name.function.macro.rust",
+                    "settings": {
+                        "fontStyle": "bold"
+                    }
+                }
+            ]
+        }
+    },
+    "workbench.colorCustomizations": {
+        "[Nord]": {}
+    },
+    "material-icon-theme.folders.color": "#616e88",
+    "material-icon-theme.folders.theme": "classic",
+    "material-icon-theme.hidesExplorerArrows": true,
+    "material-icon-theme.saturation": 0.6,
+    /*+--- Language Scopes ---+*/
+    "[markdown]": {
+        "editor.quickSuggestions": false,
+        "editor.wordWrap": "on"
+    },
+    "[mdx]": {
+        "editor.quickSuggestions": false,
+        "editor.wordWrap": "on"
+    },
     "java.configuration.checkProjectSettingsExclusions": false
 }
