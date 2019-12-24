@@ -483,8 +483,11 @@ before packages are loaded."
     (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
   ;; Rust config
-  (setq rust-indent-offset 4)
+  (setq rust-indent-offset 4
+        rust-format-on-save t)
   (setq lsp-rust-rls-command '("rustup" "run" "stable" "rls"))
+  (setq lsp-ui-doc-max-width 40
+        lsp-ui-doc-max-height 30)
 
   ;; Neotree
   (setq neo-theme 'icons)

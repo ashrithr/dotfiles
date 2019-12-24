@@ -194,6 +194,7 @@
 
 	name = Ashrith Mekala
 	email = ashrith@me.com
+	signingKey = ""
 	
 # URL shorthands
 
@@ -217,3 +218,7 @@
 
   insteadOf = "gist:"	
 	
+[gpg]
+	program = gpg
+[tag]
+	forceSignAnnotated = false

@@ -5,6 +5,9 @@
         80,
         100
     ],
+    "vim.leader": "<space>",
+    "vim.sneak": true,
+    "vim.surround": true,
     "vim.insertModeKeyBindings": [
         {
             "before": [
@@ -16,22 +19,61 @@
             ]
         }
     ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // Bind ZZ to the vim command :wq (save and close the current file)
+        {
+            "before": [
+                "Z",
+                "Z"
+            ],
+            "commands": [
+                ":wq"
+            ]
+        },
+        // <leader>w to save the current file
+        {
+            "before": [
+                "leader",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.files.save",
+            ]
+        }
+    ],
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Dracula",
-    "workbench.tree.horizontalScrolling": true,
+    "workbench.colorTheme": "Nord",
+    "workbench.list.horizontalScrolling": true,
     "editor.fontFamily": "'Fira Code', Hack, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "editor.wordWrapColumn": 100,
-    "editor.minimap.enabled": false,
-    "terminal.external.osxExec": "iTerm.app",
-    "breadcrumbs.enabled": false,
+    "editor.tokenColorCustomizations": {
+        "[Nord]": {
+            // Use a 10% brigher foreground color for all comments.
+            "comments": "#7b88a1",
+            "textMateRules": [
+                {
+                    "scope": "comment",
+                    "settings": {
+                        "fontStyle": "italic"
+                    }
+                },
+                {
+                    "scope": "entity.name.function.macro.rust",
+                    "settings": {
+                        "fontStyle": "bold"
+                    }
+                }
+            ]
+        }
+    },
     "workbench.fontAliasing": "antialiased",
     "markdown.extension.toc.githubCompatibility": true,
     "gitlens.codeLens.authors.enabled": false,
-    "gitlens.codeLens.enabled": false,
     "cSpell.userWords": [
         "Eventable",
         "Mutex",
+        "backoff",
         "chrono",
         "comparator",
         "datetime",
@@ -54,7 +96,46 @@
     "editor.formatOnSave": true,
     "workbench.sideBar.location": "right",
     "material-icon-theme.folders.theme": "classic",
-    "rust-client.logToFile": true,
     "rust-client.rlsPath": "/Users/ashrith/.cargo/bin/rls",
-    "rust-client.channel": "nightly"
+    "rust-client.channel": "stable",
+    "editor.suggestSelection": "first",
+    // Custom YAML tags for AWS CloudFormation
+    "yaml.customTags": [
+        "!Equals sequence",
+        "!FindInMap sequence",
+        "!GetAtt",
+        "!GetAtt sequence",
+        "!GetAZs",
+        "!ImportValue",
+        "!Join sequence",
+        "!Ref",
+        "!Select sequence",
+        "!Split sequence",
+        "!Sub",
+        "!If sequence",
+        "!And sequence",
+        "!Condition",
+        "!Not sequence",
+        "!Or sequence"
+    ],
+    "editor.formatOnType": true,
+    "search.exclude": {
+        "**/.class": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.idea": true,
+        "**/.svn": true,
+        "**/.vscode": true,
+        "**/*.semanticdb": true,
+        "**/bower_components": true,
+        "**/node_modules": true,
+        "**/project": true,
+        "**/target": true,
+        "**/.bloop": true,
+        "**/.metals": true
+    },
+    "sync.gist": "bf15382bcc63ef585d6c3797ebb7fca7",
+    "gitlens.codeLens.enabled": false,
+    "editor.renderWhitespace": "selection",
+    "java.configuration.checkProjectSettingsExclusions": false
 }

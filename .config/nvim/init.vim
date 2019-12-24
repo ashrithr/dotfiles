@@ -63,6 +63,7 @@ Plug 'tpope/vim-fugitive'
 "" Color
 Plug 'mhartington/oceanic-next'
 Plug 'dracula/vim'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -258,11 +259,11 @@ set mouse=a " Enable mouse usage (all modes) in terminals
 set shortmess+=c " don't give |ins-completion-menu| messages.
 
 " Colors
-colorscheme dracula
+colorscheme nord
 
 " Lightline Colors
 let g:lightline = {
-  \ 'colorscheme': 'dracula'
+  \ 'colorscheme': 'nord'
 \}
 
 " Show those damn hidden characters
