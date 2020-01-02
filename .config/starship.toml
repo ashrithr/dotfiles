@@ -1,0 +1,5 @@
+[character]
+style_success = "bold purple"
+
+[aws]
+disabled = true
