@@ -3,3 +3,9 @@ style_success = "bold purple"
 
 [aws]
 disabled = true
+
+[package]
+style = "bold black"
+
+[rust]
+style = "bold black"
