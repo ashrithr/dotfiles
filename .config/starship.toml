@@ -9,3 +9,9 @@ style = "bold black"
 
 [rust]
 style = "bold black"
+
+[nodejs]
+style = "bold black"
+
+[golang]
+style = "bold black"
