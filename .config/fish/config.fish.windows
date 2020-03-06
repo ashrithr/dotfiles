@@ -1,0 +1,15 @@
+# PROMPT
+starship init fish | source
+
+# Docker
+set -x DOCKER_HOST tcp://localhost:2375
+
+# Rust and Cargo
+set -gx PATH ~/.cargo/bin $PATH
+
+# Go
+set -gx GOPATH $HOME/go
+
+# WSL specific
+alias ls='ls $argv 2>/dev/null --color=auto'
+umask 022
