@@ -22,6 +22,7 @@
             // Put settings here that you want to apply to all profiles.
             "colorScheme": "Nord",
             "fontSize": 13,
+            "fontFace": "Cascadia Code PL",
             "historySize": 100000
         },
         "list": [
