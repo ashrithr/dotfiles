@@ -10,4 +10,5 @@ starship init fish | source
 # Rustup
 export PATH="$HOME/.cargo/bin:$PATH"
 
-
+# Pyenv
+pyenv init - | source
