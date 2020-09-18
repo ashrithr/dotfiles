@@ -3,31 +3,10 @@ tap 'homebrew/core'
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
-tap 'neovim/neovim'
-tap 'homebrew/bundle'
-tap 'homebrew/dupes'
 tap 'homebrew/services'
-tap 'railwaycat/emacsmacport'
-
-# Install ZSH
-brew 'zsh'
-brew 'zsh-completions'
-brew 'zsh-syntax-highlighting'
-
-# Install GNU core utilities (those that come with macOS are outdated)
-brew 'coreutils'
-
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
-brew 'findutils'
-
-# Install Bash 4
-brew 'bash'
-
-# Install more recent versions of some macOS tools
-brew 'homebrew/dupes/grep'
 
 # Install Binaries
-brew 'xs' # dependency for python3
+brew 'coreutils'
 brew 'openssl'
 brew 'ack'
 brew 'awscli'
@@ -51,7 +30,6 @@ brew 'python3'
 brew 'mackup'
 brew 'mas'
 brew 'mosh'
-brew 'neovim/neovim/neovim'
 brew 'node'
 brew 'pdsh'
 brew 'rbenv'
@@ -69,21 +47,17 @@ brew 'trash'
 brew 'tree'
 brew 'wget', args: ['with-iri']
 brew "youtube-dl"
-brew 'emacs-mac', args: ['with-spacemacs-icon']
 
 # Apps
 cask '1password'
 cask 'appcleaner'
 cask 'alfred'
-cask 'dash3'
+cask 'dash'
 cask 'docker'
 cask 'dropbox'
 cask 'firefox'
 cask 'ksdiff'
 cask 'postman'
-cask 'quip'
-cask 'sequel-pro'
-cask 'sizeup'
 cask 'slack'
 cask 'iina'
 cask 'visual-studio-code'
@@ -99,15 +73,12 @@ cask 'quicklook-csv'
 cask 'qlstephen'
 
 # Fonts
-cask 'font-fira-code'
-cask 'font-hack'
-cask 'font-hack-nerd-font'
+cask 'font-cascadia'
+cask 'font-cascadia-pl'
 
 # Install Mac App Store apps
-mas "Agenda", id: 1287445660
 mas "Bear", id: 1091189122
 mas "DaisyDisk", id: 411643860
-mas "Deliveries", id: 924726344
 mas "Fantastical 2", id: 975937182
 mas "Jump Desktop", id: 524141863
 mas "Kaleidoscope", id: 587512244
@@ -123,5 +94,3 @@ mas "Pixelmator", id: 407963104
 mas "Pocket", id: 568494494
 mas "SiteSucker", id: 442168834
 mas "Spark", id: 1176895641
-mas "Things3", id: 904280696
-mas "Yoink", id: 457622435
