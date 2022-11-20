@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # Make vim the default editor.
-export EDITOR='nvim';
+export EDITOR='hx';
 
 # Increase Bash history size. Allow 32³ entries; the default is 500.
 export HISTSIZE='32768';
@@ -21,11 +21,3 @@ export MANPAGER='less -X';
 
 # Use rg as the default for fzf
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore --hidden --smart-case --follow --glob '!.git/*'"
-
-# Jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-
-# Go
-export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin

@@ -23,18 +23,6 @@ chsh -s $(which zsh)
 echo "[+] Configuring MAC with sensible defaults ..."
 bash .macos
 
-# Install Prezto - Zsh configuration framework
-echo "[+] Installing Prezto (A Zsh configuration framework) ..."
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
-
-# Install Spacemacs
-echo "[+] Installing Spacemacs ..."
-git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
-
 # Move the configuration files
 echo "[+] Synchronizing dotfiles ..."
 rsync --exclude ".git/" \
@@ -42,10 +30,6 @@ rsync --exclude ".git/" \
   --exclude ".osx" \
   --exclude "init/" \
   -avh --no-perms . ~
-
-# Install neovim python support
-pip2 isntall neovim --upgrade
-pip3 install neovim --upgrade
 
 echo "[+] Sourcing zsh ..."
 source ~/.zshrc

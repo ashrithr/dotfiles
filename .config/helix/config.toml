@@ -1,0 +1,18 @@
+theme = "dracula"
+
+[editor]
+line-number = "relative"
+mouse = true
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+
+[keys.normal]
+"del" = "delete_selection"
+"C-c" = ":clipboard-yank"
+
+[editor.file-picker]
+hidden = false
