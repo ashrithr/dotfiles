@@ -24,3 +24,7 @@ if type -q pyenv
 	pyenv init - | source
 	pyenv virtualenv-init - | source
 end
+
+if type -q zoxide
+	zoxide init --cmd cd fish | source
+end
