@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# Make vim the default editor.
+# Make helix the default editor.
 export EDITOR='hx';
 
 # Increase Bash history size. Allow 32³ entries; the default is 500.

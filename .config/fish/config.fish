@@ -6,6 +6,11 @@ if [ -f "$HOME/.config/fish/functions.fish" ]
 	source "$HOME/.config/fish/functions.fish"
 end
 
+if [ -f "$HOME/.exports" ]
+    # pull in all shared `export …` aka `set -gx …`
+    source "$HOME/.exports"
+end
+
 if [ -f "/opt/homebrew/bin/brew" ]
 	eval (/opt/homebrew/bin/brew shellenv)
 end
@@ -13,8 +18,6 @@ end
 if [ -d "$HOME/.cargo" ]
 	export PATH="$HOME/.cargo/bin:$PATH"
 end
-
-export PATH="$HOME/.local/bin:$PATH"
 
 if type -q starship
 	starship init fish | source

@@ -4,15 +4,31 @@ theme = "dracula"
 line-number = "relative"
 mouse = true
 
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
 [editor.statusline]
 left = ["mode", "spinner"]
 center = ["file-name"]
-right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+right = [
+    "diagnostics",
+    "selections",
+    "position",
+    "file-encoding",
+    "file-line-ending",
+    "file-type",
+]
 separator = "│"
+
+[editor.file-picker]
+hidden = false
 
 [keys.normal]
 "del" = "delete_selection"
 "C-c" = ":clipboard-yank"
+g = { a = "code_action" }  # Map `ga` to show possible code actions
 
-[editor.file-picker]
-hidden = false
+[keys.insert]
+j = { k = "normal_mode" } # Map `jk` to exit inser mode

@@ -22,8 +22,8 @@ alias h="history"
 alias j="jobs"
 
 # List all files colorized in long format
-alias ls="exa --icons --group-directories-first"
-alias ll="exa --icons --group-directories-first -l"
+alias ls="eza --icons --group-directories-first"
+alias ll="eza --icons --group-directories-first -l"
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
@@ -150,4 +150,3 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # Utils
 alias weather="curl -4 http://wttr.in"
-

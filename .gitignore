@@ -12,3 +12,26 @@ Thumbs.db
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+# Sensitive files
+*.env
+*.key
+*.pem
+*.credentials
+*.password
+*.secret
+
+# Scratch files
+.scratch/
+
+# Dependencies
+node_modules/
+vendor/
+
+# Generated files
+build/
+dist/
+
+# Logs
+*.log
+log.txt
