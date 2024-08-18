@@ -85,4 +85,4 @@ mas "ColorSlurp", id: 1287239339
 mas "DaisyDisk", id: 411643860
 mas "Kaleidoscope", id: 587512244
 mas "Magnet", id: 441258766
-mas "Velkja", id: 1607635845
+mas "Velja", id: 1607635845
