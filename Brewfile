@@ -32,7 +32,7 @@ brew 'mas'
 brew 'neofetch'
 brew 'node'
 brew 'reattach-to-user-namespace'
-brew 'rustup-init'
+brew 'rustup'
 brew 'stow'
 brew 'thefuck'
 brew 'telnet'
@@ -47,7 +47,6 @@ brew 'bandwhich' # Terminal bandwidth utilization tool
 brew 'bat' # A replacement for cat
 brew 'bottom' # Yet another cross-platform graphical process/system monitor
 brew 'git-delta' # A syntax-highlighting pager for git, diff, and grep output
-brew 'dog' # Command-line DNS client (dig alternative)
 brew 'dust' # A more intuitive version of du
 brew 'eza' # A modern version of ls
 brew 'fd' # A simple, fast and user-friendly alternative to find
@@ -61,7 +60,6 @@ brew 'zellij' # Pluggable terminal workspace (tmux alternative)
 brew 'zoxide' # A smarter cd command
 
 # Apps
-cask '1password'
 cask 'appcleaner'
 cask 'dash'
 cask 'postman'
@@ -69,7 +67,6 @@ cask 'iina'
 cask "imageoptim"
 cask 'keka'
 cask 'orbstack'
-cask 'raycast'
 cask 'visual-studio-code'
 cask 'warp'
 cask 'zed'
