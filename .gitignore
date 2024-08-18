@@ -31,6 +31,9 @@ vendor/
 # Generated files
 build/
 dist/
+# Generated files - zed
+embeddings/
+prompts/
 
 # Logs
 *.log

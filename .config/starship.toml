@@ -11,3 +11,6 @@ error_symbol = ""
 
 [aws]
 disabled = true
+
+[line_break]
+disabled = true
