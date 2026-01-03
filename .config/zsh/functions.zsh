@@ -75,22 +75,11 @@ function dataurl() {
   echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
 }
 
-# Create a git.io short URL
-function gitio() {
-  if [ -z "${1}" -o -z "${2}" ]; then
-    echo "Usage: \`gitio slug url\`";
-    return 1;
-  fi;
-  curl -i https://git.io/ -F "url=${2}" -F "code=${1}";
-}
-
 # Start an HTTP server from a directory, optionally specifying the port
 function server() {
   local port="${1:-8000}";
   sleep 1 && open "http://localhost:${port}/" &
-  # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
-  # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
-  python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port";
+  python3 -m http.server "$port";
 }
 
 # Compare original and gzipped file size
@@ -106,9 +95,9 @@ function gz() {
 # Usage: `json '{"foo":42}'` or `echo '{"foo":42}' | json`
 function json() {
   if [ -t 0 ]; then # argument
-    python -mjson.tool <<< "$*" | pygmentize -l javascript;
+    echo "$*" | python3 -m json.tool | bat -l json --style=plain;
   else # pipe
-    python -mjson.tool | pygmentize -l javascript;
+    python3 -m json.tool | bat -l json --style=plain;
   fi;
 }
 
@@ -178,33 +167,33 @@ function getcertnames() {
   fi;
 }
 
-# `s` with no arguments opens the current directory in Sublime Text, otherwise
+# `c` with no arguments opens the current directory in VS Code, otherwise
 # opens the given location
-function s() {
+function c() {
   if [ $# -eq 0 ]; then
-    subl .;
+    code .;
   else
-    subl "$@";
+    code "$@";
   fi;
 }
 
-# `a` with no arguments opens the current directory in Atom Editor, otherwise
-# opens the given location
-function a() {
-  if [ $# -eq 0 ]; then
-    atom .;
-  else
-    atom "$@";
-  fi;
-}
-
-# `v` with no arguments opens the current directory in Nvim, otherwise opens the
+# `v` with no arguments opens the current directory in Helix, otherwise opens the
 # given location
 function v() {
   if [ $# -eq 0 ]; then
-    nvim .;
+    hx .;
   else
-    nvim "$@";
+    hx "$@";
+  fi;
+}
+
+# `z` with no arguments opens the current directory in Zed, otherwise opens the
+# given location
+function z() {
+  if [ $# -eq 0 ]; then
+    zed .;
+  else
+    zed "$@";
   fi;
 }
 

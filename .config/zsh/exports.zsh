@@ -13,8 +13,8 @@ export HISTCONTROL='ignoreboth';
 export LANG='en_US.UTF-8';
 export LC_ALL='en_US.UTF-8';
 
-# Highlight section titles in manual pages.
-export LESS_TERMCAP_md="${yellow}";
+# Highlight section titles in manual pages (bold magenta).
+export LESS_TERMCAP_md=$'\e[1;35m';
 
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';

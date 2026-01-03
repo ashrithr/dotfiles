@@ -31,4 +31,4 @@ hidden = false
 g = { a = "code_action" }  # Map `ga` to show possible code actions
 
 [keys.insert]
-j = { k = "normal_mode" } # Map `jk` to exit inser mode
+j = { k = "normal_mode" } # Map `jk` to exit insert mode
