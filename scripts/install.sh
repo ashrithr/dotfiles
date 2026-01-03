@@ -1,37 +1,55 @@
 #!/bin/bash
 
+set -e
+
 # Install homebrew if not already installed
-if test ! $(which brew); then
-  echo  "[+] Installing Homebrew ..."
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if ! command -v brew &> /dev/null; then
+  echo "[+] Installing Homebrew ..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  # Add Homebrew to PATH for the rest of this script
+  if [[ -f /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -f /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
 fi
 
-# Update homebrew receipes
-echo "[+] Updating Homebrew receipes ..."
+# Update homebrew recipes
+echo "[+] Updating Homebrew recipes ..."
 brew update
 
-# Install all our dependencies with bundle (See Brewfile)
-echo  "[+] Installing Applications and Command line tools via Homebrew ..."
-brew tap homebrew/bundle
-brew bundle
+# Install all dependencies with bundle (See Brewfile)
+echo "[+] Installing Applications and Command line tools via Homebrew ..."
+brew bundle --file="$(dirname "$0")/../Brewfile"
 
-# Make zsh the default shell environment
-echo "[+] Making zsh the default shell"
-chsh -s $(which zsh)
+# Install stow if not already installed
+if ! command -v stow &> /dev/null; then
+  echo "[+] Installing GNU Stow ..."
+  brew install stow
+fi
 
-# Set MacOS preferences
+# Set macOS preferences
 echo "[+] Configuring MAC with sensible defaults ..."
-bash .macos
+bash "$(dirname "$0")/.macos"
 
-# Move the configuration files
-echo "[+] Synchronizing dotfiles ..."
-rsync --exclude ".git/" \
-  --exclude ".DS_Store" \
-  --exclude ".osx" \
-  --exclude "init/" \
-  -avh --no-perms . ~
+# Create symlinks using stow
+echo "[+] Creating symlinks with stow ..."
+cd "$(dirname "$0")/.."
+stow -v --target="$HOME" .
 
-echo "[+] Sourcing zsh ..."
-source ~/.zshrc
+# Make fish the default shell
+FISH_PATH=$(which fish)
+if [[ -n "$FISH_PATH" ]]; then
+  if ! grep -q "$FISH_PATH" /etc/shells; then
+    echo "[+] Adding fish to /etc/shells ..."
+    echo "$FISH_PATH" | sudo tee -a /etc/shells
+  fi
 
-echo "DONE"
+  if [[ "$SHELL" != "$FISH_PATH" ]]; then
+    echo "[+] Making fish the default shell ..."
+    chsh -s "$FISH_PATH"
+  fi
+fi
+
+echo "[+] Done! Please restart your terminal."

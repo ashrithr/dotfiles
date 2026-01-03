@@ -1,4 +1,4 @@
-# vim as default
+# Helix as default editor
 export EDITOR="hx"
 
 # Don't clear the screen after quitting a manual page
