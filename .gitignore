@@ -32,8 +32,10 @@ vendor/
 build/
 dist/
 # Generated files - zed
-embeddings/
-prompts/
+.config/zed/embeddings/
+.config/zed/prompts/
+.config/zed/conversations/
+*.mdb
 
 # Logs
 *.log
