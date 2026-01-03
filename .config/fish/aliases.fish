@@ -5,6 +5,7 @@ alias rm=trash
 alias ls="eza --icons --group-directories-first"
 alias ll="eza --icons --group-directories-first -l"
 alias la="eza --icons --group-directories-first -la"
+alias ltr="eza --icons -l --sort=newest"
 alias tree="eza --icons --tree"
 
 # Navigation
