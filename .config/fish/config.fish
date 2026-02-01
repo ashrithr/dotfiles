@@ -6,6 +6,9 @@
 # Core Configuration (Always loaded immediately)
 # ----------------------------------------------------------
 
+# Remove the default greeting (clean prompt)
+set -g fish_greeting ""
+
 # Source aliases (fast, no subshells)
 test -f "$HOME/.config/fish/aliases.fish"; and source "$HOME/.config/fish/aliases.fish"
 
