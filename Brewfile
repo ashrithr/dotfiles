@@ -67,6 +67,7 @@ cask 'orbstack'
 cask 'visual-studio-code'
 cask 'warp'
 cask 'zed'
+cask 'ghostty'
 
 # Fonts
 cask 'font-cascadia-code'
