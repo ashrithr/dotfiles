@@ -1,3 +1,7 @@
+font-family = "CaskaydiaCove Nerd Font"
+font-size = 15
+
+# Dracula Pro Theme
 palette = 0=#22212C
 palette = 1=#FF9580
 palette = 2=#8AFF80
