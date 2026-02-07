@@ -33,6 +33,11 @@ brew 'trash'
 brew 'wget'
 brew 'yt-dlp'          # Active fork of youtube-dl
 brew 'zsh'
+brew 'zsh-autosuggestions'
+brew 'zsh-syntax-highlighting'
+brew 'jq'              # JSON processor
+brew 'yq'              # YAML/TOML/XML processor
+brew 'shellcheck'      # Shell script linter
 
 # Rust Tooling
 brew 'atuin'     # Better shell history with sync
@@ -53,6 +58,15 @@ brew 'tealdeer'  # A very fast implementation of tldr
 brew 'xh'        # Friendly and fast tool for sending HTTP requests
 brew 'zellij'    # Pluggable terminal workspace (tmux alternative)
 brew 'zoxide'    # A smarter cd command
+brew 'difftastic'  # Structural diff tool (AST-aware)
+brew 'hyperfine'   # Command-line benchmarking tool
+brew 'lazygit'     # Terminal UI for git
+brew 'lazydocker'  # Terminal UI for docker
+brew 'yazi'        # Terminal file manager
+brew 'tokei'       # Code statistics
+brew 'gping'       # Ping with graph
+brew 'procs'       # Modern ps replacement
+brew 'doggo'       # Modern DNS client
 
 # Apps
 cask 'appcleaner'
@@ -75,6 +89,5 @@ cask 'font-caskaydia-cove-nerd-font'
 # Install Mac App Store apps
 mas "ColorSlurp", id: 1287239339
 mas "DaisyDisk", id: 411643860
-mas "Kaleidoscope", id: 587512244
 mas "Magnet", id: 441258766
 mas "Velja", id: 1607635845

@@ -3,3 +3,14 @@
 --glob=!.git/
 --glob=!node_modules/
 --glob=!.DS_Store
+--glob=!__pycache__/
+--glob=!*.pyc
+--glob=!target/
+--glob=!dist/
+--glob=!build/
+--glob=!coverage/
+--glob=!*.min.js
+--glob=!*.min.css
+--glob=!package-lock.json
+--glob=!yarn.lock
+--glob=!go.sum

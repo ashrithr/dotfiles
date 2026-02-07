@@ -105,7 +105,15 @@ disabled = true  # Slow, reads package.json
 disabled = true
 
 [hostname]
-disabled = true
+disabled = false
+ssh_only = true
+style = "bold dimmed red"
 
 [username]
-disabled = true
+disabled = false
+show_always = false
+style_user = "bold dimmed blue"
+
+[container]
+disabled = false
+format = '[$symbol \[$name\]]($style) '

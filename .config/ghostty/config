@@ -1,5 +1,25 @@
 font-family = "CaskaydiaCove Nerd Font"
 font-size = 15
+font-thicken = true
+
+# Shell integration
+shell-integration = fish
+macos-option-as-alt = true
+macos-titlebar-style = tabs
+
+# Window
+window-padding-x = 8
+window-padding-y = 4
+
+# Clipboard
+copy-on-select = clipboard
+
+# Cursor
+cursor-style = bar
+cursor-style-blink = false
+
+# Scrollback
+scrollback-limit = 50000
 
 # Dracula Pro Theme
 palette = 0=#22212C

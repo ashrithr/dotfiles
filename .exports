@@ -1,8 +1,9 @@
 # Helix as default editor
 export EDITOR="hx"
 
-# Don't clear the screen after quitting a manual page
-export MANPAGER="less -X"
+# Use bat for man pages (syntax highlighting with Dracula theme)
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
 
 # Prefer US English and use UTF-8
 export LC_ALL="en_US.UTF-8"
@@ -10,20 +11,20 @@ export LANG="en_US"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-# Highlighting inside manpages and elsewhere
-export LESS_TERMCAP_mb=$(printf '\e[01;31m')	# enter blinking mode – red
-export LESS_TERMCAP_md=$(printf '\e[01;35m')	# enter double-bright mode – bold, magenta
-export LESS_TERMCAP_me=$(printf '\e[0m')		# turn off all appearance modes (mb, md, so, us)
-export LESS_TERMCAP_se=$(printf '\e[0m')		# leave standout mode
-export LESS_TERMCAP_so=$(printf '\e[01;33m')	# enter standout mode – yellow
-export LESS_TERMCAP_ue=$(printf '\e[0m')		# leave underline mode
-export LESS_TERMCAP_us=$(printf '\e[04;36m')    # enter underline mode – cyan
-
 # fzf - use fd for fast file/directory finding (respects .gitignore)
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+export FZF_DEFAULT_OPTS="
+  --height=60% --layout=reverse --border=rounded --info=inline
+  --bind='ctrl-d:half-page-down,ctrl-u:half-page-up'
+  --bind='ctrl-y:execute-silent(echo {+} | pbcopy)'
+  --color=fg:#f8f8f2,bg:#22212c,hl:#8be9fd
+  --color=fg+:#f8f8f2,bg+:#454158,hl+:#8be9fd
+  --color=info:#bd93f9,prompt:#50fa7b,pointer:#ff79c6
+  --color=marker:#ff79c6,spinner:#bd93f9,header:#6272a4"
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always {} 2>/dev/null || tree -C {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --icons --tree --level=2 {} 2>/dev/null'"
 
 # ripgrep config file location
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
