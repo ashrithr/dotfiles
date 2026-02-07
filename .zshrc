@@ -2,7 +2,10 @@
 # Zsh Configuration - Optimized with mise
 # ============================================================
 
-# Source modular configs
+# Source shared exports
+[[ -f ~/.exports ]] && source ~/.exports
+
+# Source modular configs (Zsh-specific overrides after shared exports)
 [[ -f ~/.config/zsh/exports.zsh ]] && source ~/.config/zsh/exports.zsh
 [[ -f ~/.config/zsh/aliases.zsh ]] && source ~/.config/zsh/aliases.zsh
 [[ -f ~/.config/zsh/functions.zsh ]] && source ~/.config/zsh/functions.zsh
@@ -29,6 +32,3 @@ command -v direnv &>/dev/null && eval "$(direnv hook zsh)"
 
 # fzf - fuzzy finder
 command -v fzf &>/dev/null && source <(fzf --zsh)
-
-# Kiro integration
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"

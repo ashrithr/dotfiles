@@ -167,16 +167,6 @@ function getcertnames() {
   fi;
 }
 
-# `c` with no arguments opens the current directory in VS Code, otherwise
-# opens the given location
-function c() {
-  if [ $# -eq 0 ]; then
-    code .;
-  else
-    code "$@";
-  fi;
-}
-
 # `v` with no arguments opens the current directory in Helix, otherwise opens the
 # given location
 function v() {
@@ -205,14 +195,6 @@ function o() {
   else
     open "$@";
   fi;
-}
-
-# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
-# the `.git` directory, listing directories first. The output gets piped into
-# `less` with options to preserve color and line numbers, unless the output is
-# small enough for one screen.
-function tre() {
-  tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
 # Colormap

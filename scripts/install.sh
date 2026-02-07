@@ -1,55 +1,58 @@
 #!/bin/bash
+set -euo pipefail
 
-set -e
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-# Install homebrew if not already installed
-if ! command -v brew &> /dev/null; then
-  echo "[+] Installing Homebrew ..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+info()    { printf "\033[0;34m[INFO]\033[0m %s\n" "$1"; }
+success() { printf "\033[0;32m[OK]\033[0m %s\n" "$1"; }
+error()   { printf "\033[0;31m[ERROR]\033[0m %s\n" "$1" >&2; }
 
-  # Add Homebrew to PATH for the rest of this script
-  if [[ -f /opt/homebrew/bin/brew ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-  elif [[ -f /usr/local/bin/brew ]]; then
-    eval "$(/usr/local/bin/brew shellenv)"
-  fi
+# 1. Install Homebrew
+if ! command -v brew &>/dev/null; then
+    info "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    if [[ -f /opt/homebrew/bin/brew ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    elif [[ -f /usr/local/bin/brew ]]; then
+        eval "$(/usr/local/bin/brew shellenv)"
+    fi
+else
+    success "Homebrew already installed"
 fi
 
-# Update homebrew recipes
-echo "[+] Updating Homebrew recipes ..."
-brew update
+# 2. Install packages from Brewfile
+info "Installing packages from Brewfile..."
+brew bundle --file="$DOTFILES_DIR/Brewfile" --no-lock
 
-# Install all dependencies with bundle (See Brewfile)
-echo "[+] Installing Applications and Command line tools via Homebrew ..."
-brew bundle --file="$(dirname "$0")/../Brewfile"
+# 3. Create symlinks with stow
+info "Creating symlinks with stow..."
+cd "$DOTFILES_DIR"
+stow -v --target="$HOME" --restow .
 
-# Install stow if not already installed
-if ! command -v stow &> /dev/null; then
-  echo "[+] Installing GNU Stow ..."
-  brew install stow
+# 4. Set up Rust toolchain
+if command -v rustup &>/dev/null; then
+    if ! rustup show active-toolchain &>/dev/null 2>&1; then
+        info "Installing Rust stable toolchain..."
+        rustup install stable
+        rustup default stable
+    else
+        success "Rust toolchain already configured"
+    fi
 fi
 
-# Set macOS preferences
-echo "[+] Configuring MAC with sensible defaults ..."
-bash "$(dirname "$0")/.macos"
-
-# Create symlinks using stow
-echo "[+] Creating symlinks with stow ..."
-cd "$(dirname "$0")/.."
-stow -v --target="$HOME" .
-
-# Make fish the default shell
-FISH_PATH=$(which fish)
+# 5. Set Fish as default shell
+FISH_PATH="$(which fish 2>/dev/null || true)"
 if [[ -n "$FISH_PATH" ]]; then
-  if ! grep -q "$FISH_PATH" /etc/shells; then
-    echo "[+] Adding fish to /etc/shells ..."
-    echo "$FISH_PATH" | sudo tee -a /etc/shells
-  fi
-
-  if [[ "$SHELL" != "$FISH_PATH" ]]; then
-    echo "[+] Making fish the default shell ..."
-    chsh -s "$FISH_PATH"
-  fi
+    if ! grep -q "$FISH_PATH" /etc/shells; then
+        info "Adding Fish to /etc/shells..."
+        echo "$FISH_PATH" | sudo tee -a /etc/shells
+    fi
+    if [[ "$SHELL" != "$FISH_PATH" ]]; then
+        info "Setting Fish as default shell..."
+        chsh -s "$FISH_PATH"
+    else
+        success "Fish is already the default shell"
+    fi
 fi
 
-echo "[+] Done! Please restart your terminal."
+success "Setup complete! Please restart your terminal."

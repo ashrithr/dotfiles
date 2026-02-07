@@ -1,20 +1,25 @@
-# Dotfiles for my setup
+# Dotfiles
 
-This repository contains the dot files for my setup.
+Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/) and [Homebrew](https://brew.sh).
 
-## Setup of the dotfiles
-
-1. Install macOS Command Line Tools by running `xcode-select --install`
-2. Install [Homebrew](https://brew.sh)
-3. Install GNU Stow by running `brew install stow`
-4. Clone this repo to `~/dotfiles`
-5. Run `stow` to symlink the dotfiles to the home directory
+## Quick Setup
 
 ```bash
+# 1. Install prerequisites
+xcode-select --install
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# 2. Clone and install
+git clone https://github.com/ashrithr/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-stow .
+bash scripts/install.sh
 ```
 
-## Setup all packages and tools using Homebrew
+## Manual Setup
 
-Install brew packages by running `brew bundle --file=~/dotfiles/Brewfile`
+```bash
+brew install stow
+cd ~/dotfiles
+stow .
+brew bundle --file=~/dotfiles/Brewfile --no-lock
+```

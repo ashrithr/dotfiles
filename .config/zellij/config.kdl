@@ -1,0 +1,18 @@
+// Zellij Configuration
+theme "dracula"
+
+// Use system clipboard
+copy_command "pbcopy"
+
+// Scrollback
+scroll_buffer_size 50000
+
+// Mouse support
+mouse_mode true
+
+// Simplified UI
+simplified_ui true
+pane_frames false
+
+// Default layout
+default_layout "compact"

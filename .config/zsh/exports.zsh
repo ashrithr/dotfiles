@@ -1,23 +1,6 @@
 #!/usr/bin/env zsh
 
-# Make helix the default editor.
-export EDITOR='hx';
-
-# Increase Bash history size. Allow 32³ entries; the default is 500.
-export HISTSIZE='32768';
-export HISTFILESIZE="${HISTSIZE}";
-# Omit duplicates and commands that begin with a space from history.
-export HISTCONTROL='ignoreboth';
-
-# Prefer US English and use UTF-8.
-export LANG='en_US.UTF-8';
-export LC_ALL='en_US.UTF-8';
-
-# Highlight section titles in manual pages (bold magenta).
-export LESS_TERMCAP_md=$'\e[1;35m';
-
-# Don’t clear the screen after quitting a manual page.
-export MANPAGER='less -X';
-
-# Use rg as the default for fzf
-export FZF_DEFAULT_COMMAND="rg --files --no-ignore --hidden --smart-case --follow --glob '!.git/*'"
+# Zsh-specific history settings (Fish uses Atuin)
+export HISTSIZE='32768'
+export HISTFILESIZE="${HISTSIZE}"
+export HISTCONTROL='ignoreboth'

@@ -40,3 +40,9 @@ dist/
 # Logs
 *.log
 log.txt
+
+# Generated files - Homebrew
+Brewfile.lock.json
+
+# Generated files - Fish
+.config/fish/fish_variables

@@ -1,0 +1,19 @@
+# Atuin - Shell History Configuration
+
+# Use fuzzy search by default
+search_mode = "fuzzy"
+
+# Filter by current directory when using shell up-key
+filter_mode_shell_up_key_binding = "directory"
+
+# Compact UI style
+style = "compact"
+
+# Enter executes immediately, Tab edits
+enter_accept = true
+
+# Filter secrets from history (AWS keys, GitHub PATs, Slack tokens, etc.)
+secrets_filter = true
+
+[sync]
+records = true
